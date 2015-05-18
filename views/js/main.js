@@ -501,11 +501,26 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+<<<<<<< HEAD
 
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+=======
+  // An Empty array to hold the results of the phase variable.
+  // We are going to precalculate the phase variable to avoid repeating the expansive calculation inside the loop
+  var phaseArray = []; 
+  var scrollTop = document.body.scrollTop / 1250;
+  for (var i = 0; i < 5; i++) {
+    phaseArray.push(Math.sin(scrollTop + i) * 100);
+  }
+
+  // TODO Check what could we use to other than querySelectorAll
+  var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < items.length; i++) {
+    items[i].style.left = items[i].basicLeft + phaseArray[i % 5] + 'px';
+>>>>>>> gh-pages
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -525,7 +540,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+<<<<<<< HEAD
   for (var i = 0; i < 200; i++) {
+=======
+  // I changed the number of Pizzas created to from 200 to 100.
+  for (var i = 0; i < 100; i++) {
+>>>>>>> gh-pages
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
