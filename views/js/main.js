@@ -451,13 +451,15 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   /**
   * Saved the Array length into a variable to boost performance
-  *
+  * I removed the variables dx, newwidth out of the loop and provided a fixed value for them.
+  * Replaced all  instance of queryElement by getElementsByClassName to enhance performance
   */
 
   function changePizzaSizes(size) {
     var numOfRandPizza = document.getElementsByClassName("randomPizzaContainer").length;
     var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
     var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
+
     for (var i = 0; i < numOfRandPizza; i++) {
       document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
@@ -508,23 +510,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-=======
-  // An Empty array to hold the results of the phase variable.
-  // We are going to precalculate the phase variable to avoid repeating the expansive calculation inside the loop
-  var phaseArray = []; 
-  var scrollTop = document.body.scrollTop / 1250;
-  for (var i = 0; i < 5; i++) {
-    phaseArray.push(Math.sin(scrollTop + i) * 100);
-  }
->>>>>>> 83a5a9b5a91eb4f45c403c74a8d82726d1b473d7
 
   /**
   * Precalculate the phase variable to avoid repeating the expansive calculation inside the loop
@@ -540,13 +525,8 @@ function updatePositions() {
   ];
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
-<<<<<<< HEAD
      items[i].style.left = items[i].basicLeft + phaseArray[i % 5] + 'px';
     //items[i].style.transform = "translateX(" + phaseArray[i % 5] + "px)";
-=======
-    items[i].style.left = items[i].basicLeft + phaseArray[i % 5] + 'px';
->>>>>>> gh-pages
->>>>>>> 83a5a9b5a91eb4f45c403c74a8d82726d1b473d7
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -564,7 +544,6 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-<<<<<<< HEAD
   /**
   * Calculated required pizzas using window.innerHeight/Width
   * and used getElementById instead of queryElement
@@ -579,17 +558,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var elem;
   for (var i = 0; i < numOfPizzas; i++) {
     elem = document.createElement('img');
-=======
-  var cols = 8;
-  var s = 256;
-<<<<<<< HEAD
-  for (var i = 0; i < 200; i++) {
-=======
-  // I changed the number of Pizzas created to from 200 to 100.
-  for (var i = 0; i < 100; i++) {
->>>>>>> gh-pages
-    var elem = document.createElement('img');
->>>>>>> 83a5a9b5a91eb4f45c403c74a8d82726d1b473d7
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
