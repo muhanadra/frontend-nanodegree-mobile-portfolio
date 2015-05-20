@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> gh-pages
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -49,6 +52,8 @@ footer span { float: right; font-style: italic; }
   body { font-size: 12px;}
   header p { padding-left: 4.5em;}
 }
+<<<<<<< HEAD
+=======
 
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
@@ -60,3 +65,4 @@ footer span { float: right; font-style: italic; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
 }
+>>>>>>> gh-pages
