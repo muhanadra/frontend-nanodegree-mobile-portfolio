@@ -1,7 +1,41 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: main.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: main.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
 @fileOverview My Submission to Udacity Nano Degree Websites optimization project
-@author <a href="Muhanadrabie@gmail.com">Muhanad</a>
+@author &lt;a href="Muhanadrabie@gmail.com">Muhanad&lt;/a>
 */
+/**
+ * Set the shoe's color.
+ *
+ * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
+ * value of {@link SHOE_COLORS}.
+ */
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -127,13 +161,23 @@ pizzaIngredients.crusts = [
   "Flatbread Crust",
   "Stuffed Crust"
 ];
-
+/**
+ * Set the shoe's color.
+ *
+ * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
+ * value of {@link SHOE_COLORS}.
+ */
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
-
+/**
+ * Set the shoe's color.
+ *
+ * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
+ * value of {@link SHOE_COLORS}.
+ */
 // Pulls adjective out of array using random number sent from generator
 function getAdj(x){
   switch(x) {
@@ -268,6 +312,12 @@ function getNoun(y) {
   };
 };
 
+/**
+ * Set var.
+ *
+ * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
+ * value of {@link SHOE_COLORS}.
+ */
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
@@ -315,10 +365,10 @@ var selectRandomCrust = function() {
 }
 
 var ingredientItemizer = function(string) {
-  return "<li>" + string + "</li>";
+  return "&lt;li>" + string + "&lt;/li>";
 }
 
-// Returns a string with random pizza ingredients nested inside <li> tags
+// Returns a string with random pizza ingredients nested inside &lt;li> tags
 var makeRandomPizza = function() {
   var pizza = "";
 
@@ -326,15 +376,15 @@ var makeRandomPizza = function() {
   var numberOfNonMeats = Math.floor((Math.random() * 3));
   var numberOfCheeses = Math.floor((Math.random() * 2));
 
-  for (var i = 0; i < numberOfMeats; i++) {
+  for (var i = 0; i &lt; numberOfMeats; i++) {
     pizza = pizza + ingredientItemizer(selectRandomMeat());
   }
 
-  for (var i = 0; i < numberOfNonMeats; i++) {
+  for (var i = 0; i &lt; numberOfNonMeats; i++) {
     pizza = pizza + ingredientItemizer(selectRandomNonMeat());
   }
 
-  for (var i = 0; i < numberOfCheeses; i++) {
+  for (var i = 0; i &lt; numberOfCheeses; i++) {
     pizza = pizza + ingredientItemizer(selectRandomCheese());
   }
 
@@ -344,8 +394,12 @@ var makeRandomPizza = function() {
   return pizza;
 }
 /**
- * @return A DOM element for each pizza
+ * PizzaGenerate.
+ *
+ * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
+ * value of {@link SHOE_COLORS}.
  */
+// returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
   var pizzaContainer,             // contains pizza title, image and list of ingredients
       pizzaImageContainer,        // contains the pizza image
@@ -384,10 +438,10 @@ var pizzaElementGenerator = function(i) {
 
   return pizzaContainer;
 }
-
 /**
-* resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-*/
+ * changePizzaSizes() was optimized to resize pizzas in less than 1ms.
+ */
+// resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
@@ -440,18 +494,16 @@ var resizePizzas = function(size) {
 
 
   /**
-  * changePizzaSizes() was optimized to resize pizzas in less than 1ms.
   * I used getElementsByClassName instead of queryElement Which is more faster
   * @var numOfRandPizza A variable to hold the length of the array generated of all elements wiht randomPizzaContainer class
-  * @var dx Removed variable outside the loop and assigned them a fixed value.
-  * @var newwidth Removed variable outside the loop and assigned them a fixed value.
+  * @var dx, newwidth Removed the two variables outside the loop and assigned them a fixed  value
   */
   function changePizzaSizes(size) {
     var numOfRandPizza = document.getElementsByClassName("randomPizzaContainer").length;
     var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
     var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
 
-    for (var i = 0; i < numOfRandPizza; i++) {
+    for (var i = 0; i &lt; numOfRandPizza; i++) {
       document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
@@ -469,7 +521,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv;
-for (var i = 2; i < 100; i++) {
+for (var i = 2; i &lt; 100; i++) {
   pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -498,19 +550,16 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 /**
-* Moves the sliding background pizzas based on scroll position.
 * Function updatePositions optimized to have a framerate of 60hz
-* @var phaseArray An array of Precalculated phases variable to avoid repeating the expansive calculation inside the loop
-* Replaced querySelectorAll  by document.getElementsByClassName to enhance performance.
 */
-//
+// Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
   /**
-  * @var phaseArray An array of Precalculated phases variable to avoid repeating the expansive calculation inside the loop
-  *
+  * Precalculate the phase variable to avoid repeating the expansive calculation inside the loop
+  * Used document.getElementsByClassName instead of querySelectorAll which is slower
   */
   var scrollTop = document.body.scrollTop / 1250;
   var phaseArray = [
@@ -521,7 +570,7 @@ function updatePositions() {
     Math.sin(scrollTop + 4) * 100
   ];
   var items = document.getElementsByClassName('mover');
-  for (var i = 0; i < items.length; i++) {
+  for (var i = 0; i &lt; items.length; i++) {
      items[i].style.left = items[i].basicLeft + phaseArray[i % 5] + 'px';
     //items[i].style.transform = "translateX(" + phaseArray[i % 5] + "px)";
   }
@@ -541,9 +590,9 @@ window.addEventListener('scroll', updatePositions);
 
 /**
 * Generates the sliding pizzas when the page loads.
-* @var numOfPizzas Variable to calculate the number of required pizza to fill the screen.
-* @var side The width/height of our pizza.
-* I used getElementById instead of queryElement.
+* Calculated required pizzas using window.innerHeight/Width
+* and used getElementById instead of queryElement
+* @var side The width/height of our pizza
 */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -556,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var numOfPizzas = rows * cols + 1;
 
   var elem;
-  for (var i = 0; i < numOfPizzas; i++) {
+  for (var i = 0; i &lt; numOfPizzas; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -567,4 +616,26 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
-});
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#adjectives">adjectives</a></li><li><a href="global.html#dx,">dx,</a></li><li><a href="global.html#getAdj">getAdj</a></li><li><a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a></li><li><a href="global.html#pizzaIngredients">pizzaIngredients</a></li><li><a href="global.html#resizePizzas">resizePizzas</a></li><li><a href="global.html#side">side</a></li><li><a href="global.html#updatePositions">updatePositions</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Wed May 20 2015 22:55:10 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
