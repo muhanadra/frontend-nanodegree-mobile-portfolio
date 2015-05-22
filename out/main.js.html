@@ -28,14 +28,8 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
 @fileOverview My Submission to Udacity Nano Degree Websites optimization project
-@author &lt;a href="Muhanadrabie@gmail.com">Muhanad&lt;/a>
+@author &lt;a href="mailto:muhanadrabie@gmail.com">Muhanad&lt;/a>
 */
-/**
- * Set the shoe's color.
- *
- * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
- * value of {@link SHOE_COLORS}.
- */
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -161,23 +155,13 @@ pizzaIngredients.crusts = [
   "Flatbread Crust",
   "Stuffed Crust"
 ];
-/**
- * Set the shoe's color.
- *
- * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
- * value of {@link SHOE_COLORS}.
- */
+
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
-/**
- * Set the shoe's color.
- *
- * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
- * value of {@link SHOE_COLORS}.
- */
+
 // Pulls adjective out of array using random number sent from generator
 function getAdj(x){
   switch(x) {
@@ -312,12 +296,6 @@ function getNoun(y) {
   };
 };
 
-/**
- * Set var.
- *
- * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
- * value of {@link SHOE_COLORS}.
- */
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
@@ -394,12 +372,8 @@ var makeRandomPizza = function() {
   return pizza;
 }
 /**
- * PizzaGenerate.
- *
- * @param {SHOE_COLORS} color - The shoe color. Must be an enumerated
- * value of {@link SHOE_COLORS}.
+ * @return A DOM element for each pizza
  */
-// returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
   var pizzaContainer,             // contains pizza title, image and list of ingredients
       pizzaImageContainer,        // contains the pizza image
@@ -438,10 +412,10 @@ var pizzaElementGenerator = function(i) {
 
   return pizzaContainer;
 }
+
 /**
- * changePizzaSizes() was optimized to resize pizzas in less than 1ms.
- */
-// resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+* resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+*/
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
@@ -494,9 +468,16 @@ var resizePizzas = function(size) {
 
 
   /**
+  *
+  * Optimized to resize pizzas in less than 1ms.
   * I used getElementsByClassName instead of queryElement Which is more faster
-  * @var numOfRandPizza A variable to hold the length of the array generated of all elements wiht randomPizzaContainer class
-  * @var dx, newwidth Removed the two variables outside the loop and assigned them a fixed  value
+  *numOfRandPizza
+  A variable to hold the length of the array generated of all elements wiht randomPizzaContainer class
+  *  &lt;tt>dx&lt;/tt>
+  Removed variable outside the loop and assigned them a fixed value.
+  *  &lt;tt>newwidth&lt;tt>
+  * Removed variable outside the loop and assigned them a fixed value.
+  * @name changePizzaSizes()
   */
   function changePizzaSizes(size) {
     var numOfRandPizza = document.getElementsByClassName("randomPizzaContainer").length;
@@ -550,17 +531,16 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 /**
+* Moves the sliding background pizzas based on scroll position.
 * Function updatePositions optimized to have a framerate of 60hz
+*  phaseArray
+* An array of Precalculated phases variable to avoid repeating the expansive calculation inside the loop
+* Replaced querySelectorAll  by document.getElementsByClassName to enhance performance.
 */
-// Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  /**
-  * Precalculate the phase variable to avoid repeating the expansive calculation inside the loop
-  * Used document.getElementsByClassName instead of querySelectorAll which is slower
-  */
   var scrollTop = document.body.scrollTop / 1250;
   var phaseArray = [
     Math.sin(scrollTop + 0) * 100,
@@ -590,9 +570,9 @@ window.addEventListener('scroll', updatePositions);
 
 /**
 * Generates the sliding pizzas when the page loads.
-* Calculated required pizzas using window.innerHeight/Width
-* and used getElementById instead of queryElement
-* @var side The width/height of our pizza
+*  numOfPizzas Variable to calculate the number of required pizza to fill the screen.
+*  side The width/height of our pizza.
+* I used getElementById instead of queryElement.
 */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -626,13 +606,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#adjectives">adjectives</a></li><li><a href="global.html#dx,">dx,</a></li><li><a href="global.html#getAdj">getAdj</a></li><li><a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a></li><li><a href="global.html#pizzaIngredients">pizzaIngredients</a></li><li><a href="global.html#resizePizzas">resizePizzas</a></li><li><a href="global.html#side">side</a></li><li><a href="global.html#updatePositions">updatePositions</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#changePizzaSizes()">changePizzaSizes()</a></li><li><a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a></li><li><a href="global.html#resizePizzas">resizePizzas</a></li><li><a href="global.html#updatePositions">updatePositions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Wed May 20 2015 22:55:10 GMT-0700 (Pacific Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Thu May 21 2015 05:45:01 GMT-0700 (Pacific Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

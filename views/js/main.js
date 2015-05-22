@@ -1,6 +1,6 @@
 /**
 @fileOverview My Submission to Udacity Nano Degree Websites optimization project
-@author <a href="Muhanadrabie@gmail.com">Muhanad</a>
+@author <a href="mailto:muhanadrabie@gmail.com">Muhanad</a>
 */
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
@@ -440,11 +440,12 @@ var resizePizzas = function(size) {
 
 
   /**
-  * changePizzaSizes() was optimized to resize pizzas in less than 1ms.
+  * Optimized to resize pizzas in less than 1ms.
   * I used getElementsByClassName instead of queryElement Which is more faster
-  * @var numOfRandPizza A variable to hold the length of the array generated of all elements wiht randomPizzaContainer class
-  * @var dx Removed variable outside the loop and assigned them a fixed value.
-  * @var newwidth Removed variable outside the loop and assigned them a fixed value.
+  * numOfRandPizza A variable to hold the length of the array generated of all elements wiht randomPizzaContainer class
+  * dx Removed variable outside the loop and assigned them a fixed value.
+  * newwidth Removed variable outside the loop and assigned them a fixed value.
+  * @name changePizzaSizes()
   */
   function changePizzaSizes(size) {
     var numOfRandPizza = document.getElementsByClassName("randomPizzaContainer").length;
@@ -500,18 +501,13 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 /**
 * Moves the sliding background pizzas based on scroll position.
 * Function updatePositions optimized to have a framerate of 60hz
-* @var phaseArray An array of Precalculated phases variable to avoid repeating the expansive calculation inside the loop
+* phaseArray An array of Precalculated phases variable to avoid repeating the expansive calculation inside the loop
 * Replaced querySelectorAll  by document.getElementsByClassName to enhance performance.
 */
-//
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  /**
-  * @var phaseArray An array of Precalculated phases variable to avoid repeating the expansive calculation inside the loop
-  *
-  */
   var scrollTop = document.body.scrollTop / 1250;
   var phaseArray = [
     Math.sin(scrollTop + 0) * 100,
@@ -541,8 +537,8 @@ window.addEventListener('scroll', updatePositions);
 
 /**
 * Generates the sliding pizzas when the page loads.
-* @var numOfPizzas Variable to calculate the number of required pizza to fill the screen.
-* @var side The width/height of our pizza.
+* numOfPizzas Variable to calculate the number of required pizza to fill the screen.
+* side The width/height of our pizza.
 * I used getElementById instead of queryElement.
 */
 
