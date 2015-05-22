@@ -42,62 +42,26 @@
 
     <section>
         <article><h2>Website Performance Optimization portfolio project</h2>
-<p>Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the <a href="https://www.udacity.com/course/ud884">Critical Rendering Path course</a>.</p>
-<p>To get started, check out the repository, inspect the code,</p>
-<h3>Getting started</h3>
-<p>Some useful tips to help you get started:</p>
-<ol>
-<li>Check out the repository</li>
-<li><p>To inspect the site on your phone, you can run a local server</p>
-<pre><code class="lang-bash">$&gt; cd /path/to/your-project-folder
-$&gt; python -m SimpleHTTPServer 8080</code></pre>
-</li>
-<li><p>Open a browser and visit localhost:8080</p>
-</li>
-<li><p>Download and install <a href="https://ngrok.com/">ngrok</a> to make your local server accessible remotely.</p>
-<pre><code class="lang-bash">$&gt; cd /path/to/your-project-folder
-$&gt; ngrok 8080</code></pre>
-</li>
-<li><p>Copy the public URL ngrok gives you and try running it through PageSpeed Insights! <a href="http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/">More on integrating ngrok, Grunt and PageSpeed.</a></p>
-</li>
-</ol>
-<p>Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!</p>
-<h3>Optimization Tips and Tricks</h3>
+<p>Here are the Steps I toke to optimize and enchance the performance of this portfolio.</p>
+<h3>index.html, project-2048.html, project-mobile.html, project-webperf</h3>
 <ul>
-<li><a href="https://developers.google.com/web/fundamentals/performance/" title="web performance">Optimizing Performance</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html" title="analyzing crp">Analyzing the Critical Rendering Path</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html" title="optimize the crp!">Optimizing the Critical Rendering Path</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html" title="render blocking css">Avoiding Rendering Blocking CSS</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html" title="javascript">Optimizing JavaScript</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html" title="nav timing api">Measuring with Navigation Timing</a>. We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.</li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a></li>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a></li>
+<li>CSS files were minified and concatenated before being inlined (I only inlined css in index.hmtl) directly to the of the html file.</li>
+<li>Minified all images usging grunt imgmin</li>
+<li>Made all render blocking scripts async and moved Google Analatyics to the bottom of the page.</li>
+<li>Used Javascript to load google fonts and added it also at the bottom of thepage.</li>
 </ul>
-<h3>Customization with Bootstrap</h3>
-<p>The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in <code>dist/css/portfolio.css</code> in the portfolio repo.</p>
-<ul>
-<li><a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a></li>
-<li><a href="http://getbootstrap.com/components/">Bootstrap's Components</a></li>
-</ul>
-<h3>Sample Portfolios</h3>
-<p>Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.</p>
-<ul>
-<li><a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a></li>
-<li><a href="http://ianlunn.co.uk/"><a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a></a></li>
-<li><a href="http://www.adhamdannaway.com/portfolio"><a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a></a></li>
-<li><a href="http://www.timboelaars.nl/"><a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a></a></li>
-<li><a href="http://futoryan.prosite.com/"><a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a></a></li>
-<li><a href="http://playonpixels.prosite.com/21591/projects"><a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a></a></li>
-<li><a href="http://colintrenter.prosite.com/"><a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a></a></li>
-<li><a href="http://calebmorris.prosite.com/"><a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a></a></li>
-<li><a href="http://www.cullywright.com/"><a href="http://www.cullywright.com/">http://www.cullywright.com/</a></a></li>
-<li><a href="http://yourjustlucky.com/"><a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a></a></li>
-<li><a href="http://nicoledominguez.com/portfolio/"><a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a></a></li>
-<li><a href="http://www.roxannecook.com/"><a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a></a></li>
-<li><a href="http://www.84colors.com/portfolio.html"><a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a></a></li>
-</ul></article>
+<h3>Main.js</h3>
+<p>Optimized to resize pizzas in less than 1ms.
+ Here are the changes applied to changePizzaSizes()
+  - I used getElementsByClassName instead of queryElement.
+  - Removed variables (newwidth and dx) outside the loop and assigned them a fixed value.
+  - Removed variable outside the loop and assigned them a fixed value.
+optimized to have a framerate of 60hz
+Here are the changes applied to updatePositions()
+ - Precalculated phase variables inside an array to avoid repeating the expansive calculation inside the loop
+ - Replaced querySelectorAll  by document.getElementsByClassName to enhance performance.
+I also changed the number of pizzas created when the page loads from 200 to autofill the screen depending on it's width.</p>
+<p>More Details can be found in the documentation.</p></article>
     </section>
 
 
@@ -141,7 +105,7 @@ $&gt; ngrok 8080</code></pre>
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
         <ul>
-            <li>&lt;a href="Muhanadrabie@gmail.com">Muhanad&lt;/a></li>
+            <li>&lt;a href="mailto:muhanadrabie@gmail.com">Muhanad&lt;/a></li>
         </ul>
     </dd>
     
@@ -198,13 +162,13 @@ $&gt; ngrok 8080</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Global</h3><ul><li><a href="global.html#newwidthRemoved variable outside the loop and assigned them a fixed value.">newwidthRemoved variable outside the loop and assigned them a fixed value.</a></li><li><a href="global.html#phaseArrayAn array of Precalculated phases variable to avoid repeating the expansive calculation inside the loopReplaced querySelectorAll  by document.getElementsByClassName to enhance performance.">phaseArrayAn array of Precalculated phases variable to avoid repeating the expansive calculation inside the loopReplaced querySelectorAll  by document.getElementsByClassName to enhance performance.</a></li><li><a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a></li><li><a href="global.html#resizePizzas">resizePizzas</a></li><li><a href="global.html#side The width/height of our pizza.I used getElementById instead of queryElement.">side The width/height of our pizza.I used getElementById instead of queryElement.</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Global</h3><ul><li><a href="global.html#changePizzaSizes()">changePizzaSizes()</a></li><li><a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a></li><li><a href="global.html#resizePizzas">resizePizzas</a></li><li><a href="global.html#updatePositions">updatePositions</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Thu May 21 2015 05:23:54 GMT-0700 (PDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Fri May 22 2015 00:01:54 GMT-0700 (PDT)
 </footer>
 
 <script> prettyPrint(); </script>

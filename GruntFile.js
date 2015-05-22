@@ -53,5 +53,5 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.registerTask('default', ['htmlmin', 'grunt-jsdoc', 'imagemin', 'cssmin' ]);
-  grunt.registerTask('production', ['grunt-jsdoc', 'imagemin', 'cssmin' ]);
+  grunt.registerTask('production', ['jsdoc', 'imagemin', 'cssmin' ]);
 }
